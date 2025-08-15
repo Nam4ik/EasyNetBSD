@@ -1,0 +1,5 @@
+[submodule "NBCoreSRC"] 
+path = ./NBCoreSRC 
+url = https://github.com/NetBSD/src 
+
+
