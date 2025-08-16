@@ -1,5 +1,8 @@
 #include <gtk/gtk.h>
+#include <stdio.h>
+#include <stdint.h> 
 
+#include "DiskTools.h"
 
 static GtkWidget* create_language_page() {
     GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
@@ -56,32 +59,31 @@ static void activate(GtkApplication *app, gpointer user_data) {
     GtkWidget *back_button;
     GtkStack *stack;
     
-    // Создаем главное окно
     window = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(window), "NetBSD Graphical Installer");
     gtk_window_set_default_size(GTK_WINDOW(window), 800, 600);
     gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
     
-    // Создаем основной контейнер
+    
     main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
     gtk_container_set_border_width(GTK_CONTAINER(main_box), 15);
     gtk_container_add(GTK_CONTAINER(window), main_box);
     
-    // Создаем стек для переключения между страницами
+    
     stack = GTK_STACK(gtk_stack_new());
     gtk_stack_set_transition_type(stack, GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT);
     
-    // Добавляем страницы в стек
+    
     gtk_stack_add_named(stack, create_language_page(), "language");
     gtk_stack_add_named(stack, create_disk_page(), "disk");
-    // Здесь можно добавить другие страницы установки
+   
     
-    // Создаем контейнер для содержимого
+    
     content_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     gtk_box_pack_start(GTK_BOX(content_box), GTK_WIDGET(stack), TRUE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(main_box), content_box, TRUE, TRUE, 0);
     
-    // Создаем панель навигации
+    
     nav_box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);
     gtk_box_set_homogeneous(GTK_BOX(nav_box), TRUE);
     gtk_widget_set_valign(nav_box, GTK_ALIGN_END);
