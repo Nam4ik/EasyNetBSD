@@ -26,9 +26,23 @@ static GtkWidget* create_disk_page() {
     gtk_box_pack_start(GTK_BOX(box), label, FALSE, FALSE, 10);
     
   
-    GtkWidget *entry = gtk_entry_new();
-    gtk_entry_set_placeholder_text(GTK_ENTRY(entry), "Enter disk device (e.g. sd0)");
-    gtk_box_pack_start(GTK_BOX(box), entry, FALSE, FALSE, 5);
+    GtkWidget *combo = gtk_combo_box_text_new();
+    int i;
+    for (i = 0; i < get_disk_count(); i++) {
+        disk_info_t *disk = get_disk_by_index(i);
+        if (disk && disk->valid) {
+            char buf[128];
+            snprintf(buf, sizeof(buf), "%s - %s - %.2f GB",
+                     disk->name,
+                     disk->type,
+                     (double)disk->size / (1024 * 1024 * 1024));
+            gtk_combo_box_text_append(GTK_COMBO_BOX_TEXT(combo), disk->name, buf);
+        }
+    }
+    if (get_disk_count() > 0) {
+        gtk_combo_box_set_active(GTK_COMBO_BOX(combo), 0);
+    }
+    gtk_box_pack_start(GTK_BOX(box), combo, FALSE, FALSE, 5);
     
     return box;
 }
@@ -72,6 +86,9 @@ static void activate(GtkApplication *app, gpointer user_data) {
     
     stack = GTK_STACK(gtk_stack_new());
     gtk_stack_set_transition_type(stack, GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT);
+    
+    
+    scan_disks();
     
     
     gtk_stack_add_named(stack, create_language_page(), "language");

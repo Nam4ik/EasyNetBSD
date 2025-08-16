@@ -17,6 +17,9 @@ typedef struct {
 } disk_info_t;
 
 int get_disk_info(const char *dev_name, disk_info_t *disk);
-int scan_disks(); 
+disk_info_t* get_disk_by_index(int index);
+int get_disk_count();
+int scan_disks();
+
 
 
