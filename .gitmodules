@@ -1,5 +1,7 @@
 [submodule "NBCoreSRC"] 
 path = ./NBCoreSRC 
-url = https://github.com/NetBSD/src 
+url = https://github.com/NetBSD/src.git 
 
-
+[submodule "WlanTools"]
+path = ./AutoNBSD/WlanTools/ 
+url = https://github.com/Nam4ik/NBNetworkManager.git 
