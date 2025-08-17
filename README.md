@@ -45,13 +45,14 @@ Or use graphical interface like [balena etcher](https://etcher.balena.io/) or [g
 After you boot from this USB stick, you will have a standard GTK3+ interface. It's intuitive and looks something like this (first build, may change slightly):
 
 <div align=center> 
-<img src="./Resources/Docs/GUIExample.png"> 
+<img src="./Resources/Docs/GUIExample.png", width=500> 
 </div>
 
 **Choose disks, part it, configure network, install packages what you need and push "Install". After this, congalurations! You are NetBSD user now!** 
 
 <br> 
 <img src="./Resources/Docs/poweredby.png">
+
 
 
 
