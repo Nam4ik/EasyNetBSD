@@ -1,0 +1,66 @@
+# Russian translations for EasyNetBSD package.
+# Copyright (C) 2024 THE EasyNetBSD'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the EasyNetBSD package. (GPL3)
+# FIRST AUTHOR <arcanetmod@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: netbsd-installer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-21 10:00+0000\n"
+"PO-Revision-Date: 2024-05-21 11:00+0000\n"
+"Last-Translator: Borisov Aleksey <arcanetmod@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/main.c:21
+msgid "Minimal installation profile"
+msgstr "Минимальный профиль установки"
+
+#: src/main.c:22
+msgid "EasyNetBSD packages from namilsk"
+msgstr "Пакеты EasyNetBSD от namilsk"
+
+#: src/main.c:23
+msgid "Desktop Environment (kde, gnome, mate...)"
+msgstr "Среда рабочего стола (kde, gnome, mate...)"
+
+#: src/main.c:24
+msgid "Window Managers (Bspwm, swaywm...)"
+msgstr "Оконные менеджеры (Bspwm, swaywm...)"
+
+#: src/main.c:25
+msgid "Kernel modules for your WiFi adapter (likely not needed as the provided kernel has built-in support)"
+msgstr "Модули ядра для вашего Wi-Fi адаптера (скорее всего не нужны, так как ядро имеет встроенную поддержку)"
+
+#: src/main.c:26
+msgid "Developer tools (C/CXX Compilers, CMake, Rust, Python, Code editors etc...)"
+msgstr "Инструменты разработчика (компиляторы C/CXX, CMake, Rust, Python, редакторы кода и т.д.)"
+
+#: src/main.c:37
+msgid "Select installation language:"
+msgstr "Выберите язык установки:"
+
+#: src/main.c:55
+msgid "Installing profiles:"
+msgstr "Устанавливаемые профили:"
+
+#: src/main.c:74
+msgid "Disk partitioning setup:"
+msgstr "Настройка разметки диска:"
+
+#: src/main.c:100
+msgid "NetBSD Graphical Installer"
+msgstr "Графический установщик NetBSD"
+
+#: src/main.c:138 src/main.c:144
+msgid "Back"
+msgstr "Назад"
+
+#: src/main.c:141 src/main.c:135
+msgid "Next"
+msgstr "Далее"
