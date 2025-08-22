@@ -8,6 +8,7 @@
 #include <sys/disklabel.h>
 #include <sys/ioctl.h>
 #include <sys/dkio.h>
+#include <sys/disk.h> 
 
 #include "DiskTools.h"
 /*
@@ -87,7 +88,7 @@ int get_disk_info(const char *dev_name, disk_info_t *disk) {
     
     disk->sector_size = dl.d_secsize;
     disk->cylinders = dl.d_ncylinders;
-    disk->heads = dl.d_nheads;
+    disk->heads = dl.d_ntracks;  
     disk->sectors_per_track = dl.d_nsectors;
     
     
