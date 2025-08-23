@@ -30,7 +30,7 @@ static disk_info_t disks[MAX_DISKS];
 static int disk_count = 0;
 
 
-int is_disk_device(const char *dev_name) {
+static int is_disk_device(const char *dev_name) {
     char path[64];
     int fd;
     struct disklabel dl;
@@ -51,7 +51,6 @@ int is_disk_device(const char *dev_name) {
     return 0;
 }
 
-
 int get_disk_info(const char *dev_name, disk_info_t *disk) {
     char path[64];
     int fd;
@@ -70,13 +69,13 @@ int get_disk_info(const char *dev_name, disk_info_t *disk) {
         return -1;
     }
     
-    
+/*
     if (ioctl(fd, DIOCGEOM, &geom) == -1) {
         close(fd);
         return -1;
     }
-    
-  
+*/ 
+
     strncpy(disk->name, dev_name, MAX_DISKS_NAME_LEN - 1);
     disk->name[MAX_DISKS_NAME_LEN - 1] = '\0';
     
@@ -88,7 +87,7 @@ int get_disk_info(const char *dev_name, disk_info_t *disk) {
     
     disk->sector_size = dl.d_secsize;
     disk->cylinders = dl.d_ncylinders;
-    disk->heads = dl.d_ntracks;  
+    disk->heads = dl.d_nheads;
     disk->sectors_per_track = dl.d_nsectors;
     
     
