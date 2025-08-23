@@ -1,12 +1,12 @@
-
 cmake_minimum_required(VERSION 3.10)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3 -Wall -Wextra -Werror -v")
 
 project(netbsd-installer)
 
 
 set(CMAKE_C_STANDARD 99)
-
+set(CC clang)
 
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
@@ -16,8 +16,8 @@ include_directories(${GTK3_INCLUDE_DIRS})
 
 
 set(SOURCES
-    AutoNBSD/MainGUI.c
-    AutoNBSD/DiskTools.c
+    MainGUI.c
+    DiskTools.c
 )
 
 
